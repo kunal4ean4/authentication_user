@@ -1,0 +1,16 @@
+{
+  "name": "authentication_user",
+  "version": "1.0.0",
+  "description": "Authentication user project where we will handle the authetication of the user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Javascript",
+    "backend",
+    "frontend"
+  ],
+  "author": "Kunal Kumar",
+  "license": "ISC"
+}
