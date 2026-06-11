@@ -14,7 +14,7 @@ const registerUser=asyncHandler(async(req,res)=>{
      }
 
      //Checking existing user
-     const existedUser=User.findOne({
+     const existedUser=await User.findOne({
         $or:[{ userName }, { email }]
      })
      if(existedUser){
@@ -22,29 +22,32 @@ const registerUser=asyncHandler(async(req,res)=>{
      }
 
      //Checking profile picture in Loacl path
-     const profilePictureLocalPath=req.files?.profilePicture[0].path;
+   
+     const profilePictureLocalPath=req.files?.profilePicture[0]?.path;
+     console.log("profilePictureLocalPath:", profilePictureLocalPath);
      if(!profilePictureLocalPath){
         throw new ApiError(400,"Profile picture is required")
      }
 
      //Checking whether it's uploaded successfully or not!
      const profilePicture=await uploadOnCloudinary(profilePictureLocalPath)
-     if(!accountPicture){
+     console.log("Cloudinary Response:", profilePicture);
+     if(!profilePicture){
         throw new ApiError(400,"Profile picture is required")
      }
 
      //Creating the entry to the database
      const user=await User.create({
-        userName,
+        userName:userName.toLowerCase(),
         email,
         fullName,
         profilePicture:profilePicture.url,
         password,
-        refreshToken
+       
      })
      const createdUser=await User.findById(user._id).select("-password -refreshToken")
 
-     if(createdUser){
+     if(!createdUser){
         throw new ApiError(500,"Something went wrong while regestering the user")
      }
 
