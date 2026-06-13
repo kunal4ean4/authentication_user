@@ -18,8 +18,7 @@ console.log("API Secret:", process.env.CLOUDINARY_API_SECRET);
             // upload the file on cloudinary
             const response=await cloudinary.uploader.upload(localFilePath,{resource_type:"auto"})
 
-            //file has been successfull
-            console.log("File is uploaded on cloudinary", (await response).url )
+            fs.unlinkSync(localFilePath)
             return response
         } catch (error) {
                 console.log("Cloudinary Error:", error);
