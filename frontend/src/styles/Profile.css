@@ -1,0 +1,104 @@
+.profileContainer {
+  min-height: 100vh;
+  background: #e9eaee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.profileCard {
+  width: 700px;
+  background: #0b0b23;
+  color: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.profileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #6c63ff;
+  object-fit: cover;
+}
+
+.profileHeader h1 {
+  margin-bottom: 8px;
+}
+
+.profileHeader p {
+  color: #bdbdbd;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.infoBox {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.infoBox span {
+  color: #a7a7a7;
+  font-size: 14px;
+}
+
+.infoBox h3 {
+  margin-top: 8px;
+  font-size: 18px;
+}
+.profileActions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.changePasswordBtn,
+.logoutBtn {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.changePasswordBtn {
+  background: linear-gradient(90deg, #6c63ff, #7b61ff);
+}
+
+.changePasswordBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+}
+
+.logoutBtn {
+  background: linear-gradient(90deg, #ff4d4d, #ff1f1f);
+}
+
+.logoutBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
+}
+
+.changePasswordBtn:active,
+.logoutBtn:active {
+  transform: scale(0.98);
+}
